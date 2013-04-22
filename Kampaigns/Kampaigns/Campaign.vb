@@ -1,4 +1,5 @@
-﻿Namespace Campaign
+﻿Imports Kampaigns.Core
+Namespace Campaign
     Public NotInheritable Class Campaign
         Implements ICampaign
 
@@ -65,5 +66,26 @@
             TimeComplete = Now
             IsCompleted = True
         End Sub
+    End Class
+    Public NotInheritable Class MissionPack
+        Implements IMissionPack
+        Sub New(Optional ByVal Missions As MissionType() = Nothing, Optional ByVal Targets As Target() = Nothing)
+            If IsNothing(Missions) = False Then
+                NewMissions = Missions
+            Else
+                Dim n(0) As MissionType
+                NewMissions = n
+            End If
+            If IsNothing(Targets) = False Then
+                NewTargets = Targets
+            Else
+                Dim n(0) As Target
+                Targets = n
+            End If
+        End Sub
+
+        Public Property NewMissions As MissionType() Implements IMissionPack.NewMissions
+
+        Public Property NewTargets As Target() Implements IMissionPack.NewTargets
     End Class
 End Namespace

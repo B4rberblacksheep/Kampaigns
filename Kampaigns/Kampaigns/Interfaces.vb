@@ -21,3 +21,8 @@ Public Interface IMission
     Property Grant As Integer
     Property Penalty As Integer
 End Interface
+
+Public Interface IMissionPack
+    Property NewTargets As Target()
+    Property NewMissions As MissionType()
+End Interface
