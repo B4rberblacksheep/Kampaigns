@@ -20,7 +20,10 @@ Namespace Campaign
     End Class
     Public NotInheritable Class Mission
         Implements IMission
-        Sub New(ByVal MissionCost As Integer, ByVal MissionReward As Integer, ByVal MissionTimeLimit As Integer, Optional ByVal MissionPenalty As Integer = 0, Optional ByVal MissionGrant As Integer = 0)
+        Sub New(ByVal MissionName As String, ByVal MissionType As MissionType, ByVal VesselName As String, ByVal MissionCost As Integer, ByVal MissionReward As Integer, ByVal MissionTimeLimit As Integer, Optional ByVal MissionPenalty As Integer = 0, Optional ByVal MissionGrant As Integer = 0)
+            Name = MissionName
+            Type = MissionType
+            ShipName = VesselName
             Cost = MissionCost
             IsCompleted = False
             Reward = MissionReward
@@ -66,6 +69,12 @@ Namespace Campaign
             TimeComplete = Now
             IsCompleted = True
         End Sub
+
+        Public Property Type As MissionType Implements IMission.Type
+
+        Public Property Name As String Implements IMission.Name
+
+        Public Property ShipName As String Implements IMission.ShipName
     End Class
     Public NotInheritable Class MissionPack
         Implements IMissionPack

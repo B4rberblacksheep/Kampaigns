@@ -11,6 +11,9 @@ Public Interface IMission
     Sub Start(ByRef Money As Integer)
     Sub Complete(ByRef Money As Integer)
     Sub Failure(ByRef Money As Integer)
+    Property Name As String
+    Property ShipName As String
+    Property Type As MissionType
     Property TimeStarted As Date
     Property TimeComplete As Date
     Property TimeLimit As Integer
